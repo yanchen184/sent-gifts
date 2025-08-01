@@ -1,13 +1,12 @@
-name: Build and Deploy to GitHub Pages
+name: Build and Deploy
 
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   build-and-deploy:
@@ -25,55 +24,37 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      env:
-        CI: false
 
     - name: Build
       run: npm run build
       env:
         CI: false
-        PUBLIC_URL: /sent-gifts
 
-    - name: Deploy to GitHub Pages
+    - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
-        enable_jekyll: false
-        cname: false
+        force_orphan: true
 
-  enable-pages:
-    runs-on: ubuntu-latest
-    needs: build-and-deploy
-    steps:
-    - name: Enable GitHub Pages
+    - name: Enable Pages via API
       uses: actions/github-script@v7
       with:
         script: |
           try {
-            // Try to get existing Pages configuration
-            const { data: pages } = await github.rest.repos.getPages({
+            await github.rest.repos.createPagesSite({
               owner: context.repo.owner,
               repo: context.repo.repo,
-            });
-            console.log('Pages already configured:', pages.html_url);
-          } catch (error) {
-            if (error.status === 404) {
-              // Pages not configured, let's set it up
-              try {
-                await github.rest.repos.createPagesSite({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  source: {
-                    branch: 'gh-pages',
-                    path: '/'
-                  }
-                });
-                console.log('GitHub Pages enabled successfully!');
-              } catch (createError) {
-                console.log('Error creating Pages site:', createError.message);
+              source: {
+                branch: 'gh-pages',
+                path: '/'
               }
+            });
+            console.log('✅ GitHub Pages enabled!');
+          } catch (error) {
+            if (error.status === 409) {
+              console.log('✅ GitHub Pages already enabled');
             } else {
-              console.log('Error checking Pages:', error.message);
+              console.log('Pages API response:', error.message);
             }
           }
