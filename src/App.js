@@ -10,6 +10,10 @@ import {
 } from './services/giftService';
 import './App.css';
 
+// Import version from package.json
+const packageJson = require('../package.json');
+const APP_VERSION = packageJson.version;
+
 /**
  * Main App component - Gift management system
  */
@@ -97,7 +101,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>🎁 禮物管理系統</h1>
-        <div className="version">v1.0.0</div>
+        <div className="version">v{APP_VERSION}</div>
       </header>
 
       {error && (
