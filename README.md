@@ -8,6 +8,10 @@
 
 [![Deploy Status](https://github.com/yanchen184/sent-gifts/actions/workflows/deploy.yml/badge.svg)](https://github.com/yanchen184/sent-gifts/actions/workflows/deploy.yml)
 
+## 📚 重要文檔
+
+- **[CI/CD 部署完整指南](./CICD_DEPLOYMENT_GUIDE.md)** - 基於實戰經驗的快速部署文檔，避免常見陷阱
+
 ## 功能特色
 
 - ✨ **拖拽管理**: 使用直觀的拖拽操作在不同狀態間移動人員
@@ -120,6 +124,8 @@ git commit -m "feat: your feature description"
 git push origin main
 ```
 
+詳細部署指南請參考：**[CI/CD_DEPLOYMENT_GUIDE.md](./CICD_DEPLOYMENT_GUIDE.md)**
+
 ### 手動部署
 ```bash
 # 建置並部署到 GitHub Pages
@@ -154,6 +160,7 @@ firebase deploy
 - 🔧 配置 GitHub Pages 部署流程
 - 📝 優化 README 文檔
 - 🚀 添加線上演示鏈接
+- 📚 新增 CI/CD 部署完整指南
 
 ### v1.0.0
 - 🎉 初始版本發布
@@ -168,3 +175,8 @@ firebase deploy
 ## 支援
 
 如有問題或建議，請聯繫開發者或在 GitHub 上提交 Issue。
+
+---
+
+**📖 想要為自己的專案設置類似的 CI/CD 流程？**  
+請參考我們的 **[CI/CD 部署完整指南](./CICD_DEPLOYMENT_GUIDE.md)**，基於實戰經驗總結，幫您避免常見陷阱，快速完成部署設置！
