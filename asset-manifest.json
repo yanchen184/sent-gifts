@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sent-gifts/static/css/main.e13bf526.css",
+    "main.js": "/sent-gifts/static/js/main.2c4a7f61.js",
+    "index.html": "/sent-gifts/index.html",
+    "main.e13bf526.css.map": "/sent-gifts/static/css/main.e13bf526.css.map",
+    "main.2c4a7f61.js.map": "/sent-gifts/static/js/main.2c4a7f61.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e13bf526.css",
+    "static/js/main.2c4a7f61.js"
+  ]
+}
