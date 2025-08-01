@@ -1,6 +1,12 @@
-# 禮物管理系統
+# 禮物管理系統 v1.1.0
 
 一個基於 React 和 Firebase 的禮物管理系統，幫助你追蹤和管理送禮狀態。
+
+## 🚀 線上演示
+
+**[立即體驗 - GitHub Pages](https://yanchen184.github.io/sent-gifts/)**
+
+[![Deploy Status](https://github.com/yanchen184/sent-gifts/actions/workflows/deploy.yml/badge.svg)](https://github.com/yanchen184/sent-gifts/actions/workflows/deploy.yml)
 
 ## 功能特色
 
@@ -9,6 +15,7 @@
 - 🔥 **即時同步**: 基於 Firebase 的即時數據同步
 - 📱 **響應式設計**: 支援桌面和移動設備
 - 🎯 **三種狀態**: 還未送禮、準備送禮、已送禮
+- 🚀 **自動部署**: 透過 GitHub Actions 自動部署到 GitHub Pages
 
 ## 安裝和運行
 
@@ -21,7 +28,7 @@
 
 1. 下載項目到本地
 ```bash
-git clone [repository-url]
+git clone https://github.com/yanchen184/sent-gifts.git
 cd sent-gifts
 ```
 
@@ -64,6 +71,10 @@ npm start
 - **Firebase Firestore**: NoSQL 雲端資料庫
 - **Firebase Analytics**: 使用情況分析
 
+### 部署服務
+- **GitHub Actions**: 自動化 CI/CD 流水線
+- **GitHub Pages**: 靜態網站託管服務
+
 ### 項目結構
 ```
 src/
@@ -100,9 +111,19 @@ npm run build
 
 ## 部署
 
-### 建置生產版本
+### 自動部署 (推薦)
+推送到 main 分支時會自動觸發 GitHub Actions 進行部署：
+
 ```bash
-npm run build
+git add .
+git commit -m "feat: your feature description"
+git push origin main
+```
+
+### 手動部署
+```bash
+# 建置並部署到 GitHub Pages
+npm run deploy
 ```
 
 ### Firebase 部署
@@ -128,11 +149,17 @@ firebase deploy
 
 ## 版本歷史
 
+### v1.1.0 (2025-08-01)
+- ✨ 新增 GitHub Actions 自動部署
+- 🔧 配置 GitHub Pages 部署流程
+- 📝 優化 README 文檔
+- 🚀 添加線上演示鏈接
+
 ### v1.0.0
-- 初始版本發布
-- 基本的拖拽管理功能
-- Firebase 數據存儲
-- 響應式設計
+- 🎉 初始版本發布
+- ✨ 基本的拖拽管理功能
+- 💾 Firebase 數據存儲
+- 📱 響應式設計
 
 ## 授權
 
@@ -140,4 +167,4 @@ firebase deploy
 
 ## 支援
 
-如有問題或建議，請聯繫開發者。
+如有問題或建議，請聯繫開發者或在 GitHub 上提交 Issue。
